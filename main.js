@@ -14,3 +14,17 @@ console.log(20 * 'asdfdsss');
 console.log(1 / 0);
 
 // STRING
+console.log('Hello', "Hello", `Hello`);
+
+// BOOLEAN
+console.log(true, false);
+
+// NULL
+console.log(null);
+
+// UNDEFINED
+console.log(undefined);
+
+//SYMBOL
+console.log(Symbol());
+
