@@ -18,3 +18,9 @@ var user_age = 20;
 var UserAge = 40;
 var userage = 10;
 
+var car;
+console.log(car);
+var car = 'bmw';
+// var car = 'audi';
+console.log(car);
+
