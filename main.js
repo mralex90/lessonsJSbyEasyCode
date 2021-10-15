@@ -23,4 +23,23 @@ console.log(car);
 var car = 'bmw';
 // var car = 'audi';
 console.log(car);
+console.clear();
 
+// console.log(nickname);
+let nickname = 'dmgame';
+nickname = 'dm';
+console.log(nickname);
+
+const firstName = 'Tom';
+// firstName = 'John';
+// const lastName;
+
+console.log(firstName);
+
+const user = {
+    name: 'Alex',
+    age: 30
+};
+
+user.age = 29;
+console.log(user);
