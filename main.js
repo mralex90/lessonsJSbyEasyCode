@@ -1,49 +1,45 @@
-/*типы данных:
-* 1. Примитивные
-* - Number: 2021, 1.5, NaN, Infinity
-* - String: 'Hello', "hello", `hello`
-* - Boolean: true, false
-* - Null: null
-* - Undefined: undefined,
-* - Symbol()
-*/
+// var, let , const
+var name = 'Alex';
+console.log(name);
+name = 'Alexandr';
+console.log(name);
 
-// NUMBER
-console.log(2021, 1.5);
-console.log(20 * 'asdfdsss');
-console.log(1 / 0);
+var age;
+console.log(age);
+age = 30;
+console.log(age);
 
-// STRING
-console.log('Hello', "Hello", `Hello`);
+var $name = 'Ivan';
+var _name = 'Maks';
+// var 1name = ''
 
-// BOOLEAN
-console.log(true, false);
+var userAge = 30;
+var user_age = 20;
+var UserAge = 40;
+var userage = 10;
 
-// NULL
-console.log(null);
+var car;
+console.log(car);
+var car = 'bmw';
+// var car = 'audi';
+console.log(car);
+console.clear();
 
-// UNDEFINED
-console.log(undefined);
+// console.log(nickname);
+let nickname = 'dmgame';
+nickname = 'dm';
+console.log(nickname);
 
-//SYMBOL
-console.log(Symbol());
+const firstName = 'Tom';
+// firstName = 'John';
+// const lastName;
 
-/**
- * Типы данных:
- * 2. Обьекты. (reference type) Передаются по ссылке.
- * - Object: { name: 'Alex', age: 30 }
- *   * Array: [1, 2, 3]
- *   * Function: function foo() {}
- *   * Date: new Date()
- *  ....
- */
-console.table({ name: 'Alex', age: 30 });
-console.log([1, 2, 3, 4]);
+console.log(firstName);
 
-/**
- * Особенности:
- * 1. JS динамически типизированный язык
- * 2. Одна и та же переменная может храниить в себе любой тип данных
- * 3. Нам не нужно определять тип данных при создании переменных
- * 4. Если мы хотим использовать статическую типизацию мы можем использовать Typescript или Flow
- */
+const user = {
+    name: 'Alex',
+    age: 30
+};
+
+user.age = 29;
+console.log(user);
