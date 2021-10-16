@@ -20,5 +20,16 @@ value = 30 - 'asdsda';
 value = 30 - '5';
 value = true + 10;
 
+// String to number
+value = Number('23');
+value = Number(false);
+value = Number(true);
+value = Number(null);
+value = Number('false');
+value = Number([1, 2, 3]);
+
+value = parseInt('200px');
+value = parseFloat('200.212px');
+
 console.log(value);
 console.log(typeof value);
