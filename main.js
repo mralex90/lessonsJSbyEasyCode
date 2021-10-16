@@ -31,5 +31,15 @@ value = Number([1, 2, 3]);
 value = parseInt('200px');
 value = parseFloat('200.212px');
 
+// Boolean
+value = Boolean('hello');
+value = Boolean('');
+value = Boolean(-100);
+value = Boolean(0);
+value = Boolean(undefined);
+value = Boolean(null);
+value = Boolean({});
+value = Boolean([]);
+
 console.log(value);
 console.log(typeof value);
