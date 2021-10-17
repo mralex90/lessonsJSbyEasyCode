@@ -1,45 +1,18 @@
-// var, let , const
-var name = 'Alex';
-console.log(name);
-name = 'Alexandr';
-console.log(name);
+// Numbers
+const num1 = 10;
+const num2 = 20;
+let value;
 
-var age;
-console.log(age);
-age = 30;
-console.log(age);
+//  Операторы   + - * / %
+value = num1 + num2;
+value = value + 100;
+value += 100;     //   Использовать эту запись
+// %
+value = 5 % 2;    // остаток от деления ( 1 )
+// Инкремент / декремент увел/уменьш переменную на 1
+value++;   // изменения произойдут на следующей строке 
+value--;
+++value;   // изменения произойдут на этой строке
+--value;
 
-var $name = 'Ivan';
-var _name = 'Maks';
-// var 1name = ''
-
-var userAge = 30;
-var user_age = 20;
-var UserAge = 40;
-var userage = 10;
-
-var car;
-console.log(car);
-var car = 'bmw';
-// var car = 'audi';
-console.log(car);
-console.clear();
-
-// console.log(nickname);
-let nickname = 'dmgame';
-nickname = 'dm';
-console.log(nickname);
-
-const firstName = 'Tom';
-// firstName = 'John';
-// const lastName;
-
-console.log(firstName);
-
-const user = {
-    name: 'Alex',
-    age: 30
-};
-
-user.age = 29;
-console.log(user);
+console.log(value);
