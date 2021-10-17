@@ -1,45 +1,46 @@
-// var, let , const
-var name = 'Alex';
-console.log(name);
-name = 'Alexandr';
-console.log(name);
+// Numbers
+const num1 = 10;
+const num2 = 20;
+let value;
 
-var age;
-console.log(age);
-age = 30;
-console.log(age);
+//  Операторы   + - * / %
+value = num1 + num2;
+value = value + 100;
+value += 100;     //   Использовать эту запись
+// %
+value = 5 % 2;    // остаток от деления ( 1 )
+// Инкремент / декремент увел/уменьш переменную на 1
+value++;   // изменения произойдут на следующей строке 
+value--;
+++value;   // изменения произойдут на этой строке
+--value;
 
-var $name = 'Ivan';
-var _name = 'Maks';
-// var 1name = ''
+// Неточные вычисления
+value = 0.6 + 0.7;  // == 1.2999999999
+//можно исправить 2мя способами, 1й:
+// value = +value.toFixed(2);  // округление; в () до кол-ва знаков после запятой
+// это строка, чтобы привести к числу - поставить " + "
+// value = +value.toFixed(2);
+// или завернуть в ф-ю:
+// value = parseFloat(value.toFixed(1));
+// или таким способом:
+value = ( 0.6 * 10 + 0.7 * 10) / 10;
 
-var userAge = 30;
-var user_age = 20;
-var UserAge = 40;
-var userage = 10;
+// Math
+// методы - это ф-ии записаны в свойства объекта
+value = Math.PI;  // это поле в объекте
+value = Math.random();     // выдает случайное число от 0 до 1
+value = Math.round(2.4);  // метод round - округляет число
+value = Math.ceil(2.1);   // округляет всегда в большую сторону
+value = Math.floor(2.9);  // округляет всегда в меньшую сторону
+value = Math.min(2, 12, 15, 13, 0, 9);  //возвращ миним число из переданного списка
+value = Math.max(2, 12, 15, 13, 0, 9);  // возвращ максим число из переданного списка
 
-var car;
-console.log(car);
-var car = 'bmw';
-// var car = 'audi';
-console.log(car);
-console.clear();
+value = Math.random() * 10; // выдает число от 0 до 10
+value = Math.floor(Math.random() * 10 + 1);  // еще и округляет до целого числа
 
-// console.log(nickname);
-let nickname = 'dmgame';
-nickname = 'dm';
-console.log(nickname);
+//получает рандомный елемент из массива
+const arr = ['black', 'red', 'yellow', 'pink', 'white', 'blue', 'orange', 'green'];
+value = Math.floor(Math.random() * arr.length);
 
-const firstName = 'Tom';
-// firstName = 'John';
-// const lastName;
-
-console.log(firstName);
-
-const user = {
-    name: 'Alex',
-    age: 30
-};
-
-user.age = 29;
-console.log(user);
+console.log(value, arr[value]);
