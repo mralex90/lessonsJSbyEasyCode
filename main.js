@@ -25,4 +25,22 @@ value = 0.6 + 0.7;  // == 1.2999999999
 // value = parseFloat(value.toFixed(1));
 // или таким способом:
 value = ( 0.6 * 10 + 0.7 * 10) / 10;
-console.log(value);
+
+// Math
+// методы - это ф-ии записаны в свойства объекта
+value = Math.PI;  // это поле в объекте
+value = Math.random();     // выдает случайное число от 0 до 1
+value = Math.round(2.4);  // метод round - округляет число
+value = Math.ceil(2.1);   // округляет всегда в большую сторону
+value = Math.floor(2.9);  // округляет всегда в меньшую сторону
+value = Math.min(2, 12, 15, 13, 0, 9);  //возвращ миним число из переданного списка
+value = Math.max(2, 12, 15, 13, 0, 9);  // возвращ максим число из переданного списка
+
+value = Math.random() * 10; // выдает число от 0 до 10
+value = Math.floor(Math.random() * 10 + 1);  // еще и округляет до целого числа
+
+//получает рандомный елемент из массива
+const arr = ['black', 'red', 'yellow', 'pink', 'white', 'blue', 'orange', 'green'];
+value = Math.floor(Math.random() * arr.length);
+
+console.log(value, arr[value]);
