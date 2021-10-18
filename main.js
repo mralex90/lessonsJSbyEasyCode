@@ -1,46 +1,30 @@
-// Numbers
-const num1 = 10;
-const num2 = 20;
+const firstName = 'Alex';
+const lastName = 'Bond';
+const age = 30;
+const str = 'Hello my name is Alex';
+
 let value;
+value = firstName + lastName;  // конкатенация - сложение строк
+value = firstName + ' ' + lastName;
+// value = value + ' I am ' + age;
+value += ' I am ' + age;
 
-//  Операторы   + - * / %
-value = num1 + num2;
-value = value + 100;
-value += 100;     //   Использовать эту запись
-// %
-value = 5 % 2;    // остаток от деления ( 1 )
-// Инкремент / декремент увел/уменьш переменную на 1
-value++;   // изменения произойдут на следующей строке 
-value--;
-++value;   // изменения произойдут на этой строке
---value;
+// properties
+value = firstName.length;
+value = firstName[2];
+value = firstName[4];
+value = lastName[lastName.length - 1];
 
-// Неточные вычисления
-value = 0.6 + 0.7;  // == 1.2999999999
-//можно исправить 2мя способами, 1й:
-// value = +value.toFixed(2);  // округление; в () до кол-ва знаков после запятой
-// это строка, чтобы привести к числу - поставить " + "
-// value = +value.toFixed(2);
-// или завернуть в ф-ю:
-// value = parseFloat(value.toFixed(1));
-// или таким способом:
-value = ( 0.6 * 10 + 0.7 * 10) / 10;
+// methods
+value = firstName.toUpperCase();  // lowerCase - понижает регистр
+value = firstName.concat(' ', lastName);  // concat - конкатенация
+value = firstName.indexOf('e');  // возвращает индекс первого вхождения данной строки 
+value = str.indexOf('my');
+// lastIndexOf - тоже самое, только с конца строки
+value = str.includes('Alex'); // возвращает булево значение на предмет наличия выражения в строке
 
-// Math
-// методы - это ф-ии записаны в свойства объекта
-value = Math.PI;  // это поле в объекте
-value = Math.random();     // выдает случайное число от 0 до 1
-value = Math.round(2.4);  // метод round - округляет число
-value = Math.ceil(2.1);   // округляет всегда в большую сторону
-value = Math.floor(2.9);  // округляет всегда в меньшую сторону
-value = Math.min(2, 12, 15, 13, 0, 9);  //возвращ миним число из переданного списка
-value = Math.max(2, 12, 15, 13, 0, 9);  // возвращ максим число из переданного списка
+value = str.slice(0, 8);  //метод взятия подстроки из строки (вырезать что-то)
+value = str.slice(0, -4);  // меняет
+value = str.replace('Alex', 'Oleks');
 
-value = Math.random() * 10; // выдает число от 0 до 10
-value = Math.floor(Math.random() * 10 + 1);  // еще и округляет до целого числа
-
-//получает рандомный елемент из массива
-const arr = ['black', 'red', 'yellow', 'pink', 'white', 'blue', 'orange', 'green'];
-value = Math.floor(Math.random() * arr.length);
-
-console.log(value, arr[value]);
+console.log(value);
