@@ -38,5 +38,8 @@ user['user-address'].city = 'Kyiv';
 // тоже самое с новым свойством
 user['user-address'].country = 'Ukraine';
 
+user.plan = {};
+user.plan.basic = 'basic'; // undefined, нужно добавить пустой объект
+
 console.log(value);
 console.log(user);
