@@ -1,28 +1,12 @@
-const firstName = 'Alex';
-const lastName = 'Bond';
-const age = 30;
+const user = {
+    firstName: 'Alex',
+    age: 30,
+    isAdmin: true,
+    email: 'test@test.com',
+    'user-address': {  // '' нужны для написания специфических символов или написание через дефис имен/свойств 
+        city: 'Kharkiv'
+    },
+    skills: ['html', 'css', 'js']
+};
 
-let str;
-
-str = 'Hello my name is ' + firstName + ' ' + lastName;
-
-str = '<ul>' +
-    '<li>First name: ' + firstName + '</li>' +
-    '<li>Last name: ' + lastName + '</li>' +
-    '<li>Age: ' + age + '</li>' +
-    '</ul>';
-
-// console.log(str);
-
-
-// ES6
-str = `
-    <ul>
-    <li>First name: ${firstName}</li>
-    <li>Last name: ${lastName}</li>
-    <li>Age: ${age}</li>
-    <li>Math.random: ${Math.random()}</li>
-    <li>5 + 5: ${5 + 5}</li>
-    </ul>`
-
-document.body.innerHTML = str;
+console.log(user);
