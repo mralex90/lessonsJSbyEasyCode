@@ -1,28 +1,45 @@
-const firstName = 'Alex';
-const lastName = 'Bond';
-const age = 30;
+const user = {
+    firstName: 'Alex',
+    age: 30,
+    isAdmin: true,
+    email: 'test@test.com',
+    'user-address': {  // '' нужны для написания специфических символов или написание через дефис имен/свойств 
+        city: 'Kharkiv'
+    },
+    skills: ['html', 'css', 'js']
+};
+ 
+// чтобы обратиться к свойствам обьекта есть два способа
+// 1й способ: обратиться через точку
+let value;
+let prop = 'email';
 
-let str;
+value = user.firstName;
+// 2й способ: обратиться через [ ]
+value = user['isAdmin']; // используется для специфичных ключей ('user-address'), т.к. через точку их получить не получиться
+value = user['user-address'];
+// чтобы получить вложеные свойства в обьект мы можем продолжить эту цепочку
+value = user['user-address'].city;  // либо через точку
+value = user['user-address']['city'];  // либо через квадратные скобки
+value = user[prop];
 
-str = 'Hello my name is ' + firstName + ' ' + lastName;
+// запись свойств в объекте
+user.firstName = 'Oleks';  // перезапись свойства
 
-str = '<ul>' +
-    '<li>First name: ' + firstName + '</li>' +
-    '<li>Last name: ' + lastName + '</li>' +
-    '<li>Age: ' + age + '</li>' +
-    '</ul>';
+value = user.firstName;
 
-// console.log(str);
+// если обратиться к свойству которого нет в обьекте, то тогда в объекте 'user' будет создано поле 'info' и в него добавиться то значение, кот мы запишем после символа '='
+user.info = 'Some info';
 
+value = user.info;
 
-// ES6
-str = `
-    <ul>
-    <li>First name: ${firstName}</li>
-    <li>Last name: ${lastName}</li>
-    <li>Age: ${age}</li>
-    <li>Math.random: ${Math.random()}</li>
-    <li>5 + 5: ${5 + 5}</li>
-    </ul>`
+// тоже самое если мы хотим перезаписать свойство вложенного объекта
+user['user-address'].city = 'Kyiv';
+// тоже самое с новым свойством
+user['user-address'].country = 'Ukraine';
 
-document.body.innerHTML = str;
+user.plan = {};
+user.plan.basic = 'basic'; // undefined, нужно добавить пустой объект
+
+console.log(value);
+console.log(user);
