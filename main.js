@@ -42,13 +42,28 @@ value = 10;
     console.log('else');
 }*/
 
-value = null;  // null в булевом представлении будет приравниваться к 'false'
-value = '';  // пустая строка тоже == 'false'
-value = 0;  // == 'false'
-value = NaN;  // тоже будет "else", т.к. в булевом представлении тоже будет 'false'
+// Логические операторы:
+// || (или), && (и), ! (логическое не)
+
+// value = null;  // null в булевом значении это 'false'
+
+// console.log(!value);  // а '!' преобразует в противоположное будлево значение от текущего
+
+// if (value === null) {
+//     console.log(value);
+// }
+
+value = [1]; // даже пустой массив == 'true'
  
-if (value) {
-    console.log('some actions', value);
-} else {
-    console.log('else', value);
-}
+// if (value.length) {
+//     console.log(value);
+// } else {
+//     console.log('array is empty');
+// }
+ // проверка что массив является массивом
+ value = null;
+ if (Array.isArray(value)) {
+     console.log(value);
+ } else {
+     console.log('array is empty');
+ }
