@@ -53,7 +53,7 @@ value = 10;
 //     console.log(value);
 // }
 
-value = [1]; // даже пустой массив == 'true'
+// value = [1]; // даже пустой массив == 'true'
  
 // if (value.length) {
 //     console.log(value);
@@ -61,9 +61,19 @@ value = [1]; // даже пустой массив == 'true'
 //     console.log('array is empty');
 // }
  // проверка что массив является массивом
- value = null;
- if (Array.isArray(value)) {
-     console.log(value);
- } else {
-     console.log('array is empty');
- }
+//  value = null;
+//  if (Array.isArray(value)) {
+//      console.log(value);
+//  } else {
+//      console.log('array is empty');
+//  }
+
+let user = {
+    name: 'Alex'
+};
+
+if (user.hasOwnProperty('name')) { // hasOwnProperty этот метод возвращает true/false, принимает имя ключа обьекта и говорит есть или нет. Но он не проверяет  значение этого свойства
+    console.log(user.name);
+} else {
+    console.log('else');
+}
