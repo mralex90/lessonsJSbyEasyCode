@@ -1,45 +1,69 @@
-const user = {
-    firstName: 'Alex',
-    age: 30,
-    isAdmin: true,
-    email: 'test@test.com',
-    'user-address': {  // '' нужны для написания специфических символов или написание через дефис имен/свойств 
-        city: 'Kharkiv'
-    },
-    skills: ['html', 'css', 'js']
-};
- 
-// чтобы обратиться к свойствам обьекта есть два способа
-// 1й способ: обратиться через точку
+// >, <, >=, <=, ==, ===, !=, !==   -  операторы сравнения
+
 let value;
-let prop = 'email';
 
-value = user.firstName;
-// 2й способ: обратиться через [ ]
-value = user['isAdmin']; // используется для специфичных ключей ('user-address'), т.к. через точку их получить не получиться
-value = user['user-address'];
-// чтобы получить вложеные свойства в обьект мы можем продолжить эту цепочку
-value = user['user-address'].city;  // либо через точку
-value = user['user-address']['city'];  // либо через квадратные скобки
-value = user[prop];
+value = 1 > 2;
+value = 2 <= 2;
+value = 1 == 1;
+value = 1 == '1';  // не строгое равенство(==) не проверяет на тип данных и автоматически преобразует значение в число
+value = 1 === '1';  // другая ситуация, т.к. типы данных у них разные
+value = 1 != '1';  // оператор неравенства не обращ внимание на типы
+value = 1 !== '1';  // строгое неравенство, учитывает типы
+value = 'a' > 'a';
+value = 'a' > 'ab';
+// чтобы посмотреть к какому юникоду относится какой символ:
+value = 'a'.charCodeAt();
+value = 'A'.charCodeAt();
 
-// запись свойств в объекте
-user.firstName = 'Oleks';  // перезапись свойства
+// console.log(value);
 
-value = user.firstName;
+// /* if (условие) {
+//     пишется код, котор выполнится если условие будет правдивым
+    
+//     action
 
-// если обратиться к свойству которого нет в обьекте, то тогда в объекте 'user' будет создано поле 'info' и в него добавиться то значение, кот мы запишем после символа '='
-user.info = 'Some info';
+// } else {
+//     если это условие не выполнится, то сработает конструкция else ( не обязательна)
 
-value = user.info;
+//     else action
+// }
+// */
+// if (условие/выражение/переменная/вычисления) {
+//     //action   если здесь будет "true" то действие выполнится, если нет - выполнится "else"
+// } else {
+//     // else action
+// }
 
-// тоже самое если мы хотим перезаписать свойство вложенного объекта
-user['user-address'].city = 'Kyiv';
-// тоже самое с новым свойством
-user['user-address'].country = 'Ukraine';
+value = 10;
 
-user.plan = {};
-user.plan.basic = 'basic'; // undefined, нужно добавить пустой объект
+/*if (value !== 10) {  // старайся делать строгое сравнение
+    console.log('value === 10');
+} else {
+    console.log('else');
+}*/
 
-console.log(value);
-console.log(user);
+// Логические операторы:
+// || (или), && (и), ! (логическое не)
+
+// value = null;  // null в булевом значении это 'false'
+
+// console.log(!value);  // а '!' преобразует в противоположное будлево значение от текущего
+
+// if (value === null) {
+//     console.log(value);
+// }
+
+value = [1]; // даже пустой массив == 'true'
+ 
+// if (value.length) {
+//     console.log(value);
+// } else {
+//     console.log('array is empty');
+// }
+ // проверка что массив является массивом
+ value = null;
+ if (Array.isArray(value)) {
+     console.log(value);
+ } else {
+     console.log('array is empty');
+ }
