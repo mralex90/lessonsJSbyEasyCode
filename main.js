@@ -53,7 +53,7 @@ value = 10;
 //     console.log(value);
 // }
 
-value = [1]; // даже пустой массив == 'true'
+// value = [1]; // даже пустой массив == 'true'
  
 // if (value.length) {
 //     console.log(value);
@@ -61,9 +61,58 @@ value = [1]; // даже пустой массив == 'true'
 //     console.log('array is empty');
 // }
  // проверка что массив является массивом
- value = null;
- if (Array.isArray(value)) {
-     console.log(value);
- } else {
-     console.log('array is empty');
- }
+//  value = null;
+//  if (Array.isArray(value)) {
+//      console.log(value);
+//  } else {
+//      console.log('array is empty');
+//  }
+
+// let user = {
+//     name: 'Alex'
+// };
+
+// if (user.hasOwnProperty('name')) { // hasOwnProperty этот метод возвращает true/false, принимает имя ключа обьекта и говорит есть или нет. Но он не проверяет  значение этого свойства
+//     console.log(user.name);
+// } else {
+//     console.log('else');
+// }
+ 
+// оператор "или" (||) запинается (пытается преобразовать все выражения) на False
+// оператор "и" (&&) запинается (пытается преобразовать в true) на True
+// value = 0 || 1;
+// value = 0 || 0 || null;  // возвращает последний false
+
+// let age = 10;
+
+// if (age < 16 || age > 65) {
+//     console.log('some action');
+// } else {
+//     console.log('else');
+// }
+
+// let serverNickname = 'Alex';
+// let nickname = serverNickname || 'default nickname';
+
+// console.log(nickname);
+
+// value = 1 && 0 && 3;
+
+// productPrice = 10;
+// if(productPrice >= 5 && productPrice <= 20) {
+//     console.log('беру');
+// } else {
+//     console.log('else');
+// }
+
+// console.log(value);
+
+value = 10;
+
+if (value < 10) {  // if и else, если одна строка, можна записать без {}
+    console.log('value < 10', value);
+} else if (value >= 10) {
+    console.log('value >=10', value);
+} else {  // кострукций if/else может быть множество, но рекомендуется больше 3х
+    console.log('else');  // нужно стараться уменьшать кол-во условий - они затрудняют код тестировать, расширять, изменять
+}
