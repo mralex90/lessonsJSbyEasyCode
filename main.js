@@ -96,13 +96,23 @@ value = 10;
 
 // console.log(nickname);
 
-value = 1 && 0 && 3;
+// value = 1 && 0 && 3;
 
-productPrice = 10;
-if(productPrice >= 5 && productPrice <= 20) {
-    console.log('беру');
-} else {
-    console.log('else');
+// productPrice = 10;
+// if(productPrice >= 5 && productPrice <= 20) {
+//     console.log('беру');
+// } else {
+//     console.log('else');
+// }
+
+// console.log(value);
+
+value = 10;
+
+if (value < 10) {  // if и else, если одна строка, можна записать без {}
+    console.log('value < 10', value);
+} else if (value >= 10) {
+    console.log('value >=10', value);
+} else {  // кострукций if/else может быть множество, но рекомендуется больше 3х
+    console.log('else');  // нужно стараться уменьшать кол-во условий - они затрудняют код тестировать, расширять, изменять
 }
-
-console.log(value);
