@@ -91,7 +91,18 @@ value = 10;
 //     console.log('else');
 // }
 
-let serverNickname = 'Alex';
-let nickname = serverNickname || 'default nickname';
+// let serverNickname = 'Alex';
+// let nickname = serverNickname || 'default nickname';
 
-console.log(nickname);
+// console.log(nickname);
+
+value = 1 && 0 && 3;
+
+productPrice = 10;
+if(productPrice >= 5 && productPrice <= 20) {
+    console.log('беру');
+} else {
+    console.log('else');
+}
+
+console.log(value);
