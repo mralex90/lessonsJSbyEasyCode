@@ -68,12 +68,30 @@ value = 10;
 //      console.log('array is empty');
 //  }
 
-let user = {
-    name: 'Alex'
-};
+// let user = {
+//     name: 'Alex'
+// };
 
-if (user.hasOwnProperty('name')) { // hasOwnProperty этот метод возвращает true/false, принимает имя ключа обьекта и говорит есть или нет. Но он не проверяет  значение этого свойства
-    console.log(user.name);
-} else {
-    console.log('else');
-}
+// if (user.hasOwnProperty('name')) { // hasOwnProperty этот метод возвращает true/false, принимает имя ключа обьекта и говорит есть или нет. Но он не проверяет  значение этого свойства
+//     console.log(user.name);
+// } else {
+//     console.log('else');
+// }
+ 
+// оператор "или" (||) запинается (пытается преобразовать все выражения) на False
+// оператор "и" (&&) запинается (пытается преобразовать в true) на True
+// value = 0 || 1;
+// value = 0 || 0 || null;  // возвращает последний false
+
+// let age = 10;
+
+// if (age < 16 || age > 65) {
+//     console.log('some action');
+// } else {
+//     console.log('else');
+// }
+
+let serverNickname = 'Alex';
+let nickname = serverNickname || 'default nickname';
+
+console.log(nickname);
