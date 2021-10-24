@@ -57,31 +57,44 @@
 //     console.log(i);
 // }
 
-// const users = [
-//     {
-//         name: 'Aleks',
-//         age: 30
-//     },
-//     {
-//         name: 'Oleg',
-//         age: 12
-//     },
-//     {
-//         name: 'Maks',
-//         age: 25
-//     },
-//     {
-//         name: 'Olga',
-//         age: 17
-//     },
-// ];
+const users = [
+    {
+        name: 'Aleks',
+        age: 30
+    },
+    {
+        name: 'Oleg',
+        age: 12
+    },
+    {
+        name: 'Maks',
+        age: 25
+    },
+    {
+        name: 'Olga',
+        age: 17
+    },
+];
 
-// const usersObj = {};
+const usersObj = {};
 
-// for (let i = 0; i < users.length; i++) {
-//     usersObj[users[i].name] = users[i];
-// }
+for (let i = 0; i < users.length; i++) {
+    usersObj[users[i].name] = users[i];
+}
 
 // console.log(usersObj['Aleks']);
 
 //  ========= FOR OF / FOR IN
+// const user = {
+//     name: 'Aleks',
+//     age: 30
+// };
+
+// for (let key in user) {
+//     console.log(key);
+//     console.log(user[key]);
+// }
+
+for (let value of users) {
+    console.log(value);
+} 
