@@ -35,3 +35,11 @@ function sayHello(firstName = "Default", lastName = "Default") {
 
 // getObj(user);
 
+// FUNCTION EXPRESSION
+const square = function(x) {
+    return x * x;
+};
+
+(function (msg) {
+    console.log(msg);
+})("Hello word");
