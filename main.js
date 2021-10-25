@@ -1,100 +1,45 @@
-// while, do while, for, for of, for in
-/* циклы, кроме for of и for in  состоят из нескольких частей:
-1: итератор - счетчик, кот определяет сколько прошло итераций
-2: условие - пока условие действительно наш код будет выполнятся и код будет работать
-3: действие кот увеличивает действие (шаг), или делает так что условие остается правдивым или в какой-то момент становится не правдивым
-*/
-
-// чтобы сделать какое-то кол-во действий нам нужен итератор( считает кол-во шагов вцикле)
-// let i = 0;
-//   ========= WHILE
-// while(i++ < 10) {  // все что в {} - тело цикла, кот будет выполнятся пока выражение в () будет true
-//     console.log(i);
-//     // i++;   но можно перенести увеличение итератора в условие
-// }
-
-// let i = 10;
-// while(i--) {  // выводилось в консоль от 9 до 0. т.к 0 == в булевом значени false
-//     console.log(i);
-// }
-//   ========== DO WHILE
-// // do while в отличии от while сначала выполнит какое-то действие, а потом произойдет проверка условия
-// do {
-//     console.log('action');
-// } while(i > 0);   // здесь пишем условие
-         //=========== FOR
-// FOR состоит из for; (указываем инициализацию; условие; увеличение итератора или шаг). ";" - обязательны, это разделение цикла на части
-// for (let i =0; i < 10; i++) {  // пока условие будет правдиво - пока будет цикл выполнять действия
-//     console.log(i); // порядок выполнения: 1 инициализация(единоразово), 2 проверка условия, 3 тело цикла, 4 увеличение шага
-// }
-
-// ПЕРЕБИРАТЬ МОЖНО ЛЮБЫЕ ИТЕРИРУЕМЫЕ ВЕЩИ В ДЖС - МАССИВЫ, СТРОКИ, ОБЬЕКТЫ И Т Д
-// let str = 'Hello';
-// let res = '';
-
-// for (let i = 0; i < str.length; i++) {
-//     res += str[i] + '*';
-// }
-// console.log(res);
-
-// let colors = ['white', 'black', 'yellow', 'orange'];
-
-// for (let i = 0; i < colors.length; i++) {
-//     colors[i] = colors[i].toUpperCase(); // можем писать условия в цикле
-// }
-
-// console.log(colors);
-
-// можем перебирать массивы с обьектами
-// в цикле есть спец клучевіе слова break и continue
-// for (let i = 0; i< 10; i++) {
-//     if (i === 5) {
-//         continue;
-//     }
-//     if (i === 5) {
-//         break;
-//     }
-//     console.log(i);
-// }
-
-const users = [
-    {
-        name: 'Aleks',
-        age: 30
-    },
-    {
-        name: 'Oleg',
-        age: 12
-    },
-    {
-        name: 'Maks',
-        age: 25
-    },
-    {
-        name: 'Olga',
-        age: 17
-    },
-];
-
-const usersObj = {};
-
-for (let i = 0; i < users.length; i++) {
-    usersObj[users[i].name] = users[i];
+function sayHello(firstName = "Default", lastName = "Default") {
+    console.log(firstName, lastName);
+    console.log("Hello World");
+    return `Hello ${firstName} ${lastName}`;
 }
 
-// console.log(usersObj['Aleks']);
+//  let res = sayHello("Oleks", "Bondarenko");
+//  let res2 = sayHello("Aleksandr", "Bondarenko") + "!";
+//  let res3 = sayHello(null);
+//  console.log(res3);
 
-//  ========= FOR OF / FOR IN
+//области видимости ф-ии
+
+// let x = 10; 
+
+// function foo(x) {
+//     x = 20;
+//     console.log(x);
+//     return x;   
+// }
+
+// foo();
+
+// console.log(x);
+
 // const user = {
-//     name: 'Aleks',
+//     name: 'Oleks',
 //     age: 30
 // };
 
-// for (let key in user) {
-//     console.log(key);
-//     console.log(user[key]);
+// function getObj(obj) {
+//     console.log(obj);
+//     obj.name = "Aleks";
 // }
 
-for (let value of users) {
-    console.log(value);
-} 
+// getObj(user);
+
+// FUNCTION EXPRESSION
+const square = function(x) {
+    return x * x;
+};
+
+(function (msg) {
+    console.log(msg);
+})("Hello word");
