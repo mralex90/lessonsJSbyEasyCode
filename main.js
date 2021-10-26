@@ -1,45 +1,11 @@
-function sayHello(firstName = "Default", lastName = "Default") {
-    console.log(firstName, lastName);
-    console.log("Hello World");
-    return `Hello ${firstName} ${lastName}`;
-}
+const numArr = [2, 32, 1234, 53, 323];
 
-//  let res = sayHello("Oleks", "Bondarenko");
-//  let res2 = sayHello("Aleksandr", "Bondarenko") + "!";
-//  let res3 = sayHello(null);
-//  console.log(res3);
+let value; // у массивов как и у строк есть длинна
 
-//области видимости ф-ии
+value = numArr.length;  // массив - это обьект, а length - его свойство и при перезаписи нужно быть аккуратным
+// numArr.length = 0;  // нужно быть аккуратным с длинной, == пустой массив
+// numArr.length = 100;  // == 100*0 - 100 пустых массивов
 
-// let x = 10; 
-
-// function foo(x) {
-//     x = 20;
-//     console.log(x);
-//     return x;   
-// }
-
-// foo();
-
-// console.log(x);
-
-// const user = {
-//     name: 'Oleks',
-//     age: 30
-// };
-
-// function getObj(obj) {
-//     console.log(obj);
-//     obj.name = "Aleks";
-// }
-
-// getObj(user);
-
-// FUNCTION EXPRESSION
-const square = function(x) {
-    return x * x;
-};
-
-(function (msg) {
-    console.log(msg);
-})("Hello word");
+value = Array.isArray(numArr);  // позволяет проверить является ли массив массивом
+ 
+console.log(value, numArr);
