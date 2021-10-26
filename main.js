@@ -1,45 +1,25 @@
-function sayHello(firstName = "Default", lastName = "Default") {
-    console.log(firstName, lastName);
-    console.log("Hello World");
-    return `Hello ${firstName} ${lastName}`;
-}
+const numArr = [2, 32, 1234, 53, 323];
 
-//  let res = sayHello("Oleks", "Bondarenko");
-//  let res2 = sayHello("Aleksandr", "Bondarenko") + "!";
-//  let res3 = sayHello(null);
-//  console.log(res3);
+let value; // у массивов как и у строк есть длинна
 
-//области видимости ф-ии
+value = numArr.length;  // массив - это обьект, а length - его свойство и при перезаписи нужно быть аккуратным
+// numArr.length = 0;  // нужно быть аккуратным с длинной, == пустой массив
+// numArr.length = 100;  // == 100*0 - 100 пустых массивов
 
-// let x = 10; 
+value = Array.isArray(numArr);  // позволяет проверить является ли массив массивом
+value = numArr[2];
+numArr[2] = 12; // меняется у 2го индекса значение
+value = numArr.indexOf(32);  // метод indexOf возвращает индекс в котором встречается этот элемент массива
 
-// function foo(x) {
-//     x = 20;
-//     console.log(x);
-//     return x;   
-// }
+value = numArr.push(100); // push добавляет элемент в конец массива
+value = numArr.pop(); // удаляет последний элемент из массива и выводит его в value
+value = numArr.unshift(1); // добавлляет элемент в начало массива
+value = numArr.unshift(); // удаляет элемнт с начала массива и возвращает его в value
+value = numArr.slice(); // обрезает часть массива / не изменяет исходный массив / возвращ вырезанную часть массива / если ничего не пердать, то возвращает копию массива
+value = numArr.splice(1, 2, "one", "two"); // дает возможность удалить какое-то кол-во элементов из массива / меняет массив
+value = numArr.reverse(); // переворачивает массив / меняет исходный массив
+value = numArr.concat(numArr); // может сделать копию массива / позволяет конкатенировать несколько массивов либо передать в него другой массив
+value = numArr.join(); // делает из массива строку принимая разделитель / если разделительне передан - вернет массив в виде строки через запятую / если передадим пустую строку - вернет слитно весь массив в виде строки
+value = "hello world".split(); // из строки делает массив / если ничего не пердаем - возвращает строку в виде масива одгного элемента / если передадим пустую строчку "" - то каждую букву разобьет на отдельный элемент массива / если пердадим " " разделитель - разобьет по разделителю строку на элементы
 
-// foo();
-
-// console.log(x);
-
-// const user = {
-//     name: 'Oleks',
-//     age: 30
-// };
-
-// function getObj(obj) {
-//     console.log(obj);
-//     obj.name = "Aleks";
-// }
-
-// getObj(user);
-
-// FUNCTION EXPRESSION
-const square = function(x) {
-    return x * x;
-};
-
-(function (msg) {
-    console.log(msg);
-})("Hello word");
+console.log(value, numArr);
