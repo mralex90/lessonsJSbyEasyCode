@@ -42,7 +42,7 @@ function mapArray(arr, fn) {  // ф-ия будет принимать два п
 }
 
 function nameLength(el) {
-    console.log(el);
+    // console.log(el);
     return el.length;
 }
 
@@ -52,6 +52,50 @@ function nameToUpperCase(el) {
 
 const result = mapArray(names, nameLength);
 const result2 = mapArray(names, nameToUpperCase);
-console.log(result2);
+// console.log(result2);
 
 // таким образом мы сокращаем кол-во кода, сокращаем его, делаем более гибким для каждой отдельной задачи с массивом, есть ф-ия обработчик и т.д.
+ 
+
+
+// ================ CALLBACK FUNCTION ===============
+
+function greeting(firstName) {
+    return function(lastName) {
+        return `Hello, ${firstName} ${lastName}`;
+    };
+}
+//     первый вариант
+// const testGreeting = greeting('Aleks');
+// const fullName = testGreeting('Bondarenko');
+
+// второй способ
+const fullName = greeting('Alex')('Bondarenko');
+// console.log(fullName);
+
+// еще один пример
+function question(job) {
+    const jobDictionary = {
+        developer: 'что такое Javascript?',
+        teacher: ' какой предмет вы ведете?'
+    };
+
+    return function(name) {
+        return `${name}, ${jobDictionary[job]}?`;
+    };
+
+    // if (job === 'developer') {
+    //     return function (name) {
+    //         return `${name}, что такое Javascript?`;
+    //     }
+    // } else if (job === 'teacher') {
+    //     return function (name) {
+    //         return `${name}, какой предмет вы ведете?`;
+    //     }
+    // }
+}
+
+const developerQuestion = question('developer');
+console.log(developerQuestion('Alex'));
+const teacherQuestion = question('teacher');
+console.log(teacherQuestion('Alex'));
