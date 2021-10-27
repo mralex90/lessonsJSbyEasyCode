@@ -11,24 +11,27 @@
 
 // метод MAP - возвращает новый массив состоящий из результатов вызова ф-ии колбэка, кот была передана, в качестве параметра. это нужно для сокращения кода
 
-const arr = ['Aleks', 'Ivan', 'Maks', 'Olga'];
-// => [5, 4, 4, 4];
-let newArr = [];
+// const arr = ['Aleks', 'Ivan', 'Maks', 'Olga'];
+// // => [5, 4, 4, 4];
+// let newArr = [];
 
-for (let i = 0; i < arr.length; i ++) {
-    newArr.push(arr[i].length);
-}
+// for (let i = 0; i < arr.length; i ++) {
+//     newArr.push(arr[i].length);
+// }
 
-console.log(newArr); // получаем новый массив состоящий из длинны каждого элемента массива "arr"
+// console.log(newArr); // получаем новый массив состоящий из длинны каждого элемента массива "arr"
 
-// пример. чтобы получить массив всех элементов имен, но чтобы каждый элемент был в верхнем регистре:
-let newArr2 = [];
-for (let i = 0; i < arr.length; i++) {
-    newArr2.push(arr[i].toUpperCase());
-}
-console.log(newArr2);
+// // пример. чтобы получить массив всех элементов имен, но чтобы каждый элемент был в верхнем регистре:
+// let newArr2 = [];
+// for (let i = 0; i < arr.length; i++) {
+//     newArr2.push(arr[i].toUpperCase());
+// }
+// console.log(newArr2);
 
 //  переписываем это все на функцию высшего порядка
+// получение длинны:
+
+const names = ['Aleks', 'Ivan', 'Maks', 'Olga'];
 
 function mapArray(arr, fn) {  // ф-ия будет принимать два параметра (массив и эту функцию)
     const res = [];// внутри себя она будет создавать новый массив
@@ -38,3 +41,13 @@ function mapArray(arr, fn) {  // ф-ия будет принимать два п
     return res;// и возвращать мы будем результирующий массив
 }
 
+function nameLength(el) {
+    console.log(el);
+    return el.length;
+}
+
+const result = mapArray(names, nameLength);
+
+console.log(result);
+
+//
