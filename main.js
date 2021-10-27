@@ -46,8 +46,12 @@ function nameLength(el) {
     return el.length;
 }
 
+function nameToUpperCase(el) {
+    return el.toUpperCase();
+}
+
 const result = mapArray(names, nameLength);
+const result2 = mapArray(names, nameToUpperCase);
+console.log(result2);
 
-console.log(result);
-
-//
+// таким образом мы сокращаем кол-во кода, сокращаем его, делаем более гибким для каждой отдельной задачи с массивом, есть ф-ия обработчик и т.д.
