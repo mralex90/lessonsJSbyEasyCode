@@ -1,101 +1,55 @@
-// //  в Javascript функции расцениваются как обьекты 
-// function foo() {
-//     console.log('Hello world');
-// }
-// foo();
-// foo.field = 'Aleks';
-// console.log(foo.field);
-// // помимо этого ф-иям могут быть переданы в качестве параметров другие ф-ии, могут быть присвоены переменные и т.д.
-// // поэтому ф-ии в джс называются ф-иями первого класса
-// /* ф-ии высшего порядка - ф-ии которые принимают в качестве параметров другие ф-ии или возвращают ф-ии */
+function getThis() {
+    console.log(this);
+}
+// this и контект вызова определяются непоссредственно  при вызове функции
+// getThis();
+// window.getThis();
+// console.log(window.getThis);
+// также можно использовать ф-ии в качестве методов
+// метод - когда ф-ия передана в качестве свойства в обьекте
 
-// метод MAP - возвращает новый массив состоящий из результатов вызова ф-ии колбэка, кот была передана, в качестве параметра. это нужно для сокращения кода
+// создаем обьект prod1, у него будет несколько полей, и мы можем обьявить ф-ию в качестве метода (getPrice)
+// ее можно обьявить несколькими способами: 1 = написав ключ getPrice, дальше передав сюда ф-ию, кот внутри себя может получить доступ к this 
 
-// const arr = ['Aleks', 'Ivan', 'Maks', 'Olga'];
-// // => [5, 4, 4, 4];
-// let newArr = [];
-
-// for (let i = 0; i < arr.length; i ++) {
-//     newArr.push(arr[i].length);
-// }
-
-// console.log(newArr); // получаем новый массив состоящий из длинны каждого элемента массива "arr"
-
-// // пример. чтобы получить массив всех элементов имен, но чтобы каждый элемент был в верхнем регистре:
-// let newArr2 = [];
-// for (let i = 0; i < arr.length; i++) {
-//     newArr2.push(arr[i].toUpperCase());
-// }
-// console.log(newArr2);
-
-//  переписываем это все на функцию высшего порядка
-// получение длинны:
-
-const names = ['Aleks', 'Ivan', 'Maks', 'Olga'];
-
-function mapArray(arr, fn) {  // ф-ия будет принимать два параметра (массив и эту функцию)
-    const res = [];// внутри себя она будет создавать новый массив
-    for (let i = 0; i < arr.length; i++) {// она будет проходиться по этому переданному массиву, но на каждой итерации она будет пушить в результирующий массив результат вызова переданной ф-ии
-    res.push(fn(arr[i])); // в эту ф-ию кот передадим в качестве второго параметра(fn) во внутрь mapArray, мы будем передавать один элемнт массива 
-    }
-    return res;// и возвращать мы будем результирующий массив
+function getPrice() {
+    console.log(this.price);
 }
 
-function nameLength(el) {
-    // console.log(el);
-    return el.length;
-}
+const prod1 = {
+    name: 'Intel',
+    price: 100,
+    getPrice,
+    getName() {
+        console.log(this.name);
+    },
+    info: {
+        information: ['2.3ghz'],
+        getInfo: function() {
+            console.log(this);
+        },
+    },
+};
+// prod1.getPrice(); 
+// такую ф-ию можем вызвать записью, и т.к. ф-ия была вызвана в контексте обьекта, то и в консоле увидим наш обьект
+// в итоге вызвав ф-ию в качестве метода обьекта, внутри этой ф-ии this  будет указываать на этот обьект
+// чтобы запомнить === this  будет равен тому что находится перед самой правой точкой, в данном случае "prod1"
+// если сделаем вложенный обьект (info), в нем еще свойство (information) и можем сделать (getInfo) в кот записать ф-ию, то вызват ее увидим, что 'this' в нутриэтой ф-ии будет указывать на обьект 'info' 
 
-function nameToUpperCase(el) {
-    return el.toUpperCase();
-}
+//  
 
-const result = mapArray(names, nameLength);
-const result2 = mapArray(names, nameToUpperCase);
-// console.log(result2);
+// таким образом мы видим зависимость от тго где была обьявлена ф-ия, будет менятся наш 'this' и непосредственно контекст вызова
 
-// таким образом мы сокращаем кол-во кода, сокращаем его, делаем более гибким для каждой отдельной задачи с массивом, есть ф-ия обработчик и т.д.
- 
+// контекст вызова опрееделяется непосредственно при вызове ф-ии и при этом не важно где и как была определена ф-ия
 
 
-// ================ CALLBACK FUNCTION ===============
+const prod2 = {
+    name: 'AMD',
+    price: 50,
+    getPrice,
+};
 
-function greeting(firstName) {
-    return function(lastName) {
-        return `Hello, ${firstName} ${lastName}`;
-    };
-}
-//     первый вариант
-// const testGreeting = greeting('Aleks');
-// const fullName = testGreeting('Bondarenko');
+prod2.getName = prod1.getName;
+// prod2.getPrice();
+ // вызывается та же ф-ия, но за счет разных контекстов мы имеем доступ к разным обьектам тем самым делая эту ф-ию универсальной с ненадобностью ее повторять
 
-// второй способ
-const fullName = greeting('Alex')('Bondarenko');
-// console.log(fullName);
-
-// еще один пример
-function question(job) {
-    const jobDictionary = {
-        developer: 'что такое Javascript?',
-        teacher: ' какой предмет вы ведете?'
-    };
-
-    return function(name) {
-        return `${name}, ${jobDictionary[job]}?`;
-    };
-
-    // if (job === 'developer') {
-    //     return function (name) {
-    //         return `${name}, что такое Javascript?`;
-    //     }
-    // } else if (job === 'teacher') {
-    //     return function (name) {
-    //         return `${name}, какой предмет вы ведете?`;
-    //     }
-    // }
-}
-
-const developerQuestion = question('developer');
-console.log(developerQuestion('Alex'));
-const teacherQuestion = question('teacher');
-console.log(teacherQuestion('Alex'));
+prod2.getName();
