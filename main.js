@@ -13,6 +13,12 @@ function getThis() {
 
 function getPrice() {
     console.log(this.price);
+    return this;
+}
+
+function getName(){
+    console.log(this.name);
+    return this;
 }
 
 const prod1 = {
@@ -62,7 +68,23 @@ const reversStr = str
     .split('')  // ['H', 'e' ...]
     .reverse() // ['d', 'l', 'r', 'o' ...]
     .join(''); // 'dlrow olleH'
-console.log(reversStr); // получаем перевертыш
+// console.log(reversStr); // получаем перевертыш
 // строка была разбита на массив (.split), была перевернута (.reverse) и была обратно склеена в строку (.join)
  
+
+const prod3 = {
+    name: 'ARM',
+    price: 200,
+    getPrice,
+    getName,
+};
+
+prod3
+    .getName() // undefined /// prod3 
+    .getPrice(); // undefined.getPrice() /// prod3.getPrice
+// чтобы вызов произошел - каждая ф-ия(getPrice, getName) должна вернуть this
+// тогда результат вызова getName будет обьект 'prod3' и у этого обьекта есть метод getPrice
+
+// но это будет работать в том случае если у обьекта кот возвращает предидущий метод есть следующий метод который мы вызываем
+// таким образом мы можем построить цепочки методов 
 
