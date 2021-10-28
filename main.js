@@ -11,8 +11,8 @@ function getThis() {
 // создаем обьект prod1, у него будет несколько полей, и мы можем обьявить ф-ию в качестве метода (getPrice)
 // ее можно обьявить несколькими способами: 1 = написав ключ getPrice, дальше передав сюда ф-ию, кот внутри себя может получить доступ к this 
 
-function getPrice() {
-    console.log(this.price);
+function getPrice(currency = '$') {
+    console.log(currency + this.price);
     return this;
 }
 
@@ -72,16 +72,16 @@ const reversStr = str
 // строка была разбита на массив (.split), была перевернута (.reverse) и была обратно склеена в строку (.join)
  
 
-const prod3 = {
-    name: 'ARM',
-    price: 200,
-    getPrice,
-    getName,
-};
+// const prod3 = {
+//     name: 'ARM',
+//     price: 200,
+//     getPrice,
+//     getName,
+// };
 
-prod3
-    .getName() // undefined /// prod3 
-    .getPrice(); // undefined.getPrice() /// prod3.getPrice
+// prod3
+//     .getName() // undefined /// prod3 
+//     .getPrice(); // undefined.getPrice() /// prod3.getPrice
 // чтобы вызов произошел - каждая ф-ия(getPrice, getName) должна вернуть this
 // тогда результат вызова getName будет обьект 'prod3' и у этого обьекта есть метод getPrice
 
@@ -92,3 +92,24 @@ prod3
 
 
 // ========= потеря контекста / возм-ть вызывать ф-ию с определенным контекстом 
+
+// методы CALL APLY - позволяют указать в каком контексте мы хотим вызвать указанную ф-ию
+
+const prod3 = {
+    name: 'ARM',
+    price: 200,
+    getPrice,
+};
+
+// getPrice.call(prod3, '*');  // принимает контекст в котором должна быть вызвана эта ф-ия
+// getPrice.apply(prod3, ['*']); // фактически такой же как метод 'call', единственное отличие в том что он принимает аргументы передаваемые в ф-ию в качестве массива
+
+// также есть возможность потерять контекст. происходит когда мы передаем какие-то методы внутрь других ф-ий, которые будут вызваны в рамках другого контекста
+
+const getPriceBind = prod3.getPrice.bind(prod3, '*');
+console.log(getPriceBind);
+
+setTimeout(getPriceBind, 1000); // здесь мы передали ссылку на эту ф-ию, которую хотим вызвать через 1секунду
+
+// setTimeout работает в контексте window. у window этого свойства (price) нет и соответственно мы получаем undefined
+// можно исправить стрелочной ф-ей и bint
